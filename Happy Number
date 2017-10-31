@@ -1,0 +1,16 @@
+class Solution {
+    public boolean isHappy(int n) {
+        Set<Integer> exist = new HashSet<Integer>();
+        
+        while(exist.add(n)){//if cant add to set, means inf loop
+            int happy = 0;
+            while(n > 0){
+                happy += Math.pow(n % 10, 2);
+                n /= 10;
+            }
+            if(happy == 1){return true;}
+            n = happy;
+        }
+        return false;
+    }
+}
